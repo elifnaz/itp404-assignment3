@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Subreddit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .posts {
+            padding: 15px;
+        }
+        #search {
+            width: 500px;
+            margin: 3em auto;
+            padding: 30px;
+        }
+        #results {
+            display: block;
+            width: 900px;
+            margin: 1em auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-group" id="search">
+        <input type="text" class="form-control" id="input" placeholder="Subreddit name">
+        <br>
+        <span class="input-group-btn">
+     <button class="btn btn-default" type="button" id="search-button">Search</button>
+   </span>
+    </div>
+    <script type="template/handlebars" id="subreddit-list-template">
+        {{#each post}}
+        <div class="panel panel-default posts">
+            <p><a href={{url}} class="title">{{title}}</a>
+            </p>
+            <p>Score: {{score}}</p>
+            <p>Comment count: {{commentCount}}</p>
+            <p>Archived: {{archived}}</p>
+        </div>
+        {{else}}
+        <h1 style="text-align:center">
+        Uh oh, subreddit not found!
+        </h1>
+        <center><img src='http://giveto.psu.edu/s/1218/images/editor/Areas%20to%20Support/Colleges_Campuses_Programs/Make_the_Connection/Second_Design/Astronaut-Web.png' />
+        </center>
+        {{/each}}
+    </script>
+    <div id="results">
+        <div id="subreddit-list"></div>
+    </div>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
